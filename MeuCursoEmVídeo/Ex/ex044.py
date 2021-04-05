@@ -1,4 +1,4 @@
-p = float(input('Qual o preço do produto? '))
+p = float(input('Qual o preço do produto? R$ '))
 cp = int(input('''Qual a condição de pagamento:
 [1] - À vista em dinheiro/cheque (10% de desconto);
 [2] - À vista no cartão (5% de desconto);

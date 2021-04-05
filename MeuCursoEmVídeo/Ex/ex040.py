@@ -9,8 +9,8 @@ listaDeNotas = [a, b]
 
 m = sum(listaDeNotas) / len(listaDeNotas)
 if m < 5:
-    print('Reprovado! A média é 5, faltaram {:.2f} pontos para a recuperação.'.format(5-m))
-elif m >= 5 and m < 7:
-    print('De Recuperação! A tua média foi de {:.2f}'.format(m))
+    print('Reprovado! A média é 5, faltaram {:.1f} pontos para a recuperação.'.format(5-m))
+elif 7 > m >= 5:
+    print('De Recuperação! A tua média foi de {:.1f}'.format(m))
 else:
-    print('Parabéns, aprovado com média {:.2f}'.format(m))
+    print('Parabéns, aprovado com média {:.1f}'.format(m))

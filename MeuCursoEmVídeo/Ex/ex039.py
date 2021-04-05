@@ -1,3 +1,4 @@
+from datetime import date
 print('=-='*11)
 print('{}'.format('Calculo do alistamento militar...'))
 print('=-='*11)
@@ -13,8 +14,9 @@ if sexo == 1:
     if alistou == 1:
         print('Ok, tudo certo então. Sem problemas legais.')
     elif alistou == 2:
-        idade = int(input('''Qual a tua idade?
+        ano = int(input('''Em qual ano nasceste?
 '''))
+        idade =  date.today().year - ano
         if idade == 18:
             print('Está no ano do alistamento, compareça ao exército.')
         elif idade < 18:
@@ -22,6 +24,7 @@ if sexo == 1:
         else:
             print('Estás atrasado com o alistamento. Deverias ter '
                   'comparecido com 18. {} anos atrasado.'.format(idade-18))
+            print('Deverias ter comparecido em {}.'.format(ano+18))
     else:
         print('Opção inválida, reinicie o programa.')
 elif sexo == 2:
