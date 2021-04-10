@@ -49,15 +49,43 @@ print(f'{"FIM DO PROGRAMA":^50}')
 time = []
 jogador = {}
 partidas = []
-jogador['nome'] = str(input('Nome do Jogador: '))
-tot = int(input(f'Quantas partidas {jogador["nome"]} jogou? '))
-for c in range(0, tot):
-    partidas.append(int(input(f'Quantos gols na partida {c+1}? ')))
-jogador['gols'] = partidas[:]
-jogador['total'] = sum(partidas)
-
-print(f'O jogador {jogador["nome"]} jogou {len(jogador["gols"])} partidas.')
-for i, v in enumerate(jogador['gols']):
-    print(f'   => Na partida {i+1}, fez {v} gols.')
+while True:
+    jogador['nome'] = str(input('Nome do Jogador: '))
+    tot = int(input(f'Quantas partidas {jogador["nome"]} jogou? '))
+    partidas.clear()
+    for c in range(0, tot):
+        partidas.append(int(input(f'Quantos gols na partida {c+1}? ')))
+    jogador['gols'] = partidas[:]
+    jogador['total'] = sum(partidas)
+    time.append(jogador.copy())
+    while True:
+        resp = str(input('Queres continuar? [S/N] ')).strip().upper()[0]
+        if resp in 'SN':
+            break
+        print('Resposta inválida.')
+    if resp in 'N':
+        break
 print('-='*30)
-print(f'Foram um total de {jogador["total"]} gols.')
+print('COD', end=' ')
+for i in jogador.keys():
+    print(f'{i:<20}', end='')
+print()
+print('-'*60)
+for k, v in enumerate(time):
+    print(f'{k:>3} ', end='')
+    for d in v.values():
+        print(f'{str(d):<20}', end='')
+    print()
+print('-'*60)
+while True:
+    busca = int(input('Mostrar dados de qual jogador? (999 para parar) '))
+    if busca == 999:
+        break
+    if busca >= len(time) or busca < 0:
+        print(f'ERRO! Não existe jogador com o códgio {busca}.')
+    else:
+        print(f' -- LEVANTAMENTO DO JOGADOR {time[busca]["nome"]}: ')
+        for i, g in enumerate(time[busca]["gols"]):
+            print(f'       No jogo {i+1} fez {g} gols.')
+print('-'*60)
+print(f'{"<<< VOLTE SEMPRE >>>":^60}')
