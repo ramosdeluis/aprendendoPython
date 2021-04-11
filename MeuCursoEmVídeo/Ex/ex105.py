@@ -1,4 +1,11 @@
 def notas(*n, sit=False):
+    """
+
+    :param n: todas as notas a serem consideradas
+    :param sit: se queres a aba situação
+    :return: dicionário com todas as informações. Em ordem: Nº de notas, maior nota,
+    menor nota, média e situação
+    """
     d = {}
     c = 0
     m = 0
@@ -27,5 +34,5 @@ def notas(*n, sit=False):
 
 
 # Programa Principal
-resp = notas(3.5, 1, 7, 6.5, 9.9, 10, 10, 10, 0, sit=True)
+resp = notas(5.5, 2.5, 1.5, sit=True)
 print(resp)
